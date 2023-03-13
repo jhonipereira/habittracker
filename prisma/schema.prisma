@@ -8,6 +8,7 @@ generator client {
 datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
+  // shadowDatabaseUrl = env("SHADOW_DATABASE_URL")
 }
 
 model User {
@@ -15,7 +16,7 @@ model User {
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
-  email     String
+  email     String @unique
   firstName String
   lastName  String
   password  String
@@ -60,6 +61,7 @@ model Mission {
   habitId String
   habit   Habit  @relation(fields: [habitId], references: [id])
 
+  description String?
   deleted Boolean @default(false)
 
   @@index([ownerId])
