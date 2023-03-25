@@ -8,7 +8,7 @@ export default function AuthRootLayout({children}) {
             <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         </head>
         <body className="h-screen w-screen rainbow-mesh p-6">
-            <GlassPane className="w-full h-full flex itemm-center justify-center">
+            <GlassPane className="w-full h-full flex items-center justify-center">
             {children}
             </GlassPane>
         </body>

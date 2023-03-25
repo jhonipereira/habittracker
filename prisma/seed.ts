@@ -1,4 +1,5 @@
 // import { hashPassword } from "@/lib/auth";
+import { hashPassword } from "@/lib/auth";
 import { db } from "@/lib/db";
 import { MISSION_STATUS } from "@prisma/client";
 
@@ -19,7 +20,7 @@ async function main(){
             email: "user@email.com",
             firstName: "User",
             lastName: "Person",
-            password: "password",
+            password: await hashPassword("password"),
             habits: {
                 create: new Array(5).fill(1).map( (_, i) => ({
                     name: `Habit ${i}`,

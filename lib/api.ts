@@ -29,3 +29,11 @@ export const signin = async (user) => {
     return fetcher({url: "/api/signin", method: "post", body: user})
 }
 
+export const createNewHabit = async (name) => {
+    return fetcher({
+        url: '/api/habit',
+        method: 'POST',
+        body: {name},
+        json: true
+    })
+}
